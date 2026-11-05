@@ -1,0 +1,58 @@
+SNI | DIRECTORIO TÉCNICO DE PROVEEDORES CFE / LAPEM
+Versión: Visor Web Local REV01 — Corte documental: 04/11/2026.
+
+1. CÓMO ABRIR (SIN INSTALAR SOFTWARE)
+   - Descomprimir completamente este ZIP en una carpeta del equipo.
+   - Abrir index.html con doble clic (Chrome, Edge o Firefox).
+   - NO abrir index.html directamente dentro del ZIP ni moverlo fuera de su carpeta.
+   - No requiere internet, servidor, Excel ni cuentas de usuario.
+   - Si el navegador bloquea archivos locales administrados por su organización,
+     solicite que habiliten la apertura de contenido estático local.
+
+2. CONSULTAS
+   - Ir a «Buscar equipos», elegir familia y, cuando se conozca, la norma CFE.
+   - Introducir tensión, corriente, MVAr, kA, NBAI y tipo que sean relevantes.
+   - Se distinguen coincidencias de parámetros textualmente respaldados,
+     datos no indicados y contradicciones técnicas explícitas.
+   - Ver «Ficha y modelos» y abrir el PDF original con el folio y página.
+   - Para cotizar, añadir el REGISTRO específico a la lista y exportar CSV.
+   - El respaldo JSON permite exportar e importar la selección sin cuentas.
+
+3. FUENTES
+   - LPA-04112026.pdf: Listado de Prototipos Aprobados de LAPEM,
+     1,139 páginas, 3,029 registros; 04 de noviembre de 2026.
+   - LPP-Proveedores-Aprobados.pdf: Listado de Proveedores Aprobados,
+     558 páginas, 273 constancias y 1,702 productos o alcances.
+   - Ambas fuentes son documentos oficiales suministrados por el usuario.
+
+4. ALCANCES Y LÍMITES
+   - La fuente LPA no sustituye la calificación LPP, ni viceversa.
+   - El visor conserva modelos, folios, vigencias, fuentes y documentos de origen.
+   - Se extrajeron datos técnicos conservadoramente; una búsqueda sin resultados
+     NO demuestra que no existan fabricantes; puede faltar la característica
+     explícita en las tablas o el producto puede constar con otra denominación.
+   - Las capacidades y rangos que aparecen en el título de la NORMA no se
+     transfieren al producto. Ej.: Sieyuan: 161 kV/21 MVAr no implica 115 kV.
+   - Una cifra que figure en el texto puede ser nominal, máxima, de ensayo,
+     de impulso o de una pieza interna. Revise siempre el fragmento fuente.
+   - Sólo se clasifica como «respaldado» aquello consultado que aparece explícito
+     en el registro; NO es un dictamen de cumplimiento íntegro con una CP.
+   - Las fechas dependen del documento de corte; verifique cambios posteriores.
+   - El nombre normalizado de una empresa es una clave de búsqueda, no una
+     identificación jurídica infalible de todas sus plantas y razones sociales.
+   - No se han añadido contactos comerciales inventados.
+
+5. PRUEBAS DE REFERENCIA
+   a) V8000-53, 115 kV: identifica ocho fabricantes con registros pertinentes;
+      excluye a Sieyuan por su alcance identificado de 161 kV.
+   b) V8000-53, 7.5 MVAr: debe excluir a CRIMSA por mínimo declarado 7.60 MVAr,
+      siempre que se active el filtro de potencia junto con la norma correspondiente.
+   c) Cuchilla 123 kV, tipo V: no considera equivalente un pantógrafo ni una
+      cuchilla cuya tensión declarada sea sólo 15 kV.
+   d) Transformadores de potencia: sin mezclar por defecto con distribución.
+
+6. PRIVACIDAD Y MANTENIMIENTO
+   - La página no envía datos a servidores externos.
+   - No incluye actualizaciones en línea; cuando LAPEM publique listados nuevos,
+     habrá que regenerar la base, no editar los folios originales manualmente.
+   - Se puede compartir internamente mediante la carpeta ZIP completa.

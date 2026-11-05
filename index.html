@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>SNI | Directorio técnico CFE–LAPEM</title>
+<link rel="stylesheet" href="recursos/estilos.css">
+<script src="datos/base.js" defer></script>
+<script src="recursos/app.js" defer></script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+  <div class="brand"><img src="recursos/sni-logo.png" alt="SNI"/><div class="brandcopy"><strong>DIRECTORIO DE PROVEEDORES</strong><span>Ingeniería y Compras · CFE / LAPEM</span></div></div>
+  <div class="header-tools"><span class="offline-dot"><i></i> Consulta local</span><span class="header-date">Corte documental: 04.11.2026</span></div>
+</div></header>
+<nav class="tabs" aria-label="Secciones"><div class="tabs-inner">
+<button class="tab active" data-panel="buscar">⌕ &nbsp; Buscar equipos</button>
+<button class="tab" data-panel="empresas">▤ &nbsp; Fabricantes</button>
+<button class="tab" data-panel="lista">☑ &nbsp; Lista de cotización <b class="selection-n">0</b></button>
+<button class="tab" data-panel="metodo">ⓘ &nbsp; Cómo interpretar</button>
+</div></nav>
+<main>
+<section class="panel show" id="buscar">
+<div class="hero"><div><div class="eyebrow">SNI / PROCUREMENT INTELLIGENCE</div><h1>Encuentra fabricantes por <em>equipo y alcance aprobado</em></h1><p>Consulta los padrones LAPEM de proveedores y prototipos. Identifica candidatos y comprueba cada característica en su documento de origen.</p></div><div class="hero-counts"><div><strong id="allCompanies">—</strong><span>Fabricantes indexados¹</span></div><div><strong id="allRegs">—</strong><span>Registros LPP + LPA</span></div></div></div>
+<div class="content">
+<aside class="filter-pane" aria-label="Filtros de búsqueda">
+ <div class="pane-title"><h2>Definir equipo</h2><button class="link-button" id="resetBtn">Limpiar</button></div>
+ <label for="q">Equipo, modelo o palabra clave</label><input id="q" type="search" placeholder="Ej. cuchilla desconectadora" autocomplete="off">
+ <label for="fFamily">Familia de equipos</label><select id="fFamily"><option value="">Todas las familias</option></select>
+ <label for="fSpec">Especificación CFE</label><input id="fSpec" placeholder="Ej. V4200-12" spellcheck="false">
+ <div class="split"><div><label for="fVolt">Tensión requerida (kV)</label><input id="fVolt" type="number" min="0" step="any" placeholder="123"></div><div><label for="fAmp">Corriente (A)</label><input id="fAmp" type="number" min="0" step="any" placeholder="2000"></div></div>
+ <div class="split"><div><label for="fPower">Potencia capacitiva (MVAr)</label><input id="fPower" type="number" min="0" step="any" placeholder="22.5"></div><div><label for="fMva">Potencia aparente (MVA)</label><input id="fMva" type="number" min="0" step="any" placeholder="60"></div></div>
+ <div class="split"><div><label for="fKa">Cortocircuito (kA)</label><input id="fKa" type="number" min="0" step="any" placeholder="40"></div><div><label for="fNbi">NBAI (kV)</label><input id="fNbi" type="number" min="0" step="any" placeholder="550"></div></div>
+ <div><label for="fType">Configuración</label><select id="fType"><option value="">Cualquiera</option><option>TRIPOLAR</option><option>MONOPOLAR</option><option>PANTÓGRAFO</option><option>TIPO V</option><option>MOTORIZADA</option><option>MANUAL</option><option>TANQUE MUERTO</option></select></div>
+ <label for="fSource">Tipo de evidencia</label><select id="fSource"><option value="">LPA y LPP</option><option value="LPA">LPA · Prototipo</option><option value="LPP">LPP · Proveedor</option></select>
+ <label class="check"><input type="checkbox" id="exclude" checked><span>Ocultar registros con contradicción técnica explícita</span></label>
+ <button id="searchBtn" class="primary full">Buscar proveedores <span>→</span></button>
+ <div class="quickexamples"><b>Consultas de prueba</b><button data-example="cuchillas">Cuchilla · 123 kV</button><button data-example="bancos">Banco AT · 115 kV</button><button data-example="transformadores">Transformador de potencia</button></div>
+ <div class="filter-note">Los campos técnicos muestran únicamente valores extraídos del alcance descrito. Un dato omitido queda <b>por verificar</b>; no se presume cumplimiento.</div>
+</aside>
+<section class="results">
+ <div class="results-heading"><div><div class="eyebrow dark">RESULTADOS DE BÚSQUEDA</div><h2 id="resultTitle">Todos los registros</h2><p id="resultSubtitle">Explora y filtra las aprobaciones documentadas.</p></div><div class="view-select"><label for="viewMode">Agrupar por</label><select id="viewMode"><option value="empresa">Fabricante</option><option value="registro">Registro</option></select></div></div>
+ <div class="statsrow"><div><strong id="foundCompanies">0</strong><span>fabricantes</span></div><div><strong id="foundRecords">0</strong><span>registros</span></div><div><strong id="verifiedCount">0</strong><span>sin parámetros pendientes²</span></div><div><strong id="unknownCount">0</strong><span>requieren cotejo²</span></div></div>
+ <div class="legend"><span><i class="dot teal"></i>Parámetros solicitados respaldados</span><span><i class="dot gold"></i>Información insuficiente</span><span><i class="dot red"></i>Contradicción explícita</span></div>
+ <div class="result-list" id="resultsList"><div class="empty">Cargando registros de LAPEM…</div></div>
+ <div class="pagination" id="pagination"></div>
+ <div class="fineprint">¹ Claves de fabricante normalizadas para búsqueda; algunas denominaciones deben reconciliarse jurídicamente. ² Clasificación únicamente para los filtros introducidos, no certifica el cumplimiento de una CP completa.</div>
+ </section>
+</div></section>
+<section class="panel" id="empresas"><div class="subhero"><span class="eyebrow dark">DIRECTORIO COMERCIAL</span><h1>Fabricantes identificados</h1><p>Consulte las familias y los registros disponibles de cada razón social. Los contactos comerciales pueden completarse posteriormente.</p></div><div class="directory-tools"><input id="companySearch" type="search" placeholder="Buscar fabricante o marca…"><select id="companyFamily"><option value="">Cualquier familia</option></select><span id="companyCount"></span></div><div id="companyGrid" class="company-grid"></div><div id="companyPagination" class="pagination"></div></section>
+<section class="panel" id="lista"><div class="subhero"><span class="eyebrow dark">GESTIÓN DE CONSULTAS</span><h1>Lista para solicitar cotizaciones</h1><p>Guarde registros concretos como referencia para Compras. La selección se guarda en este navegador cuando es posible; puede exportarla para conservarla o compartirla.</p></div><div class="selection-tools"><button id="exportCsv" class="primary">Exportar CSV para Compras</button><button id="exportJson" class="secondary">Respaldar selección (JSON)</button><label class="import-button">Importar respaldo JSON<input type="file" id="importJson" accept="application/json,.json" hidden></label><button id="clearSelection" class="danger">Vaciar lista</button></div><div id="selectionList"></div></section>
+<section class="panel" id="metodo"><div class="subhero"><span class="eyebrow dark">CONTROL DOCUMENTAL</span><h1>Cómo interpretar el directorio</h1><p>Reglas para usar las constancias sin confundir antecedentes LAPEM con una autorización universal de cualquier producto.</p></div><div class="method-grid"><article class="method-card"><h3>01 · Dos padrones distintos</h3><p><strong>LPP / CCP:</strong> calificación del proveedor y bienes señalados. <strong>LPA / CEP y registros migrados:</strong> prototipos y productos evaluados. Ninguno reemplaza automáticamente la inspección o el Aviso de Prueba del suministro.</p></article><article class="method-card"><h3>02 · Parámetros explícitos</h3><p>Los filtros sólo comparan valores identificados en las descripciones del bien. El texto general de una especificación no amplía automáticamente la cobertura de un modelo. Los parámetros no identificables se marcan pendientes.</p></article><article class="method-card"><h3>03 · Coincidencia documental</h3><p>“Respaldado” significa únicamente que <em>los filtros introducidos</em> encuentran evidencia expresa en ese registro, no que el equipo cumpla toda la Característica Particular de CFE ni que su planta tenga una constancia vigente.</p></article><article class="method-card"><h3>04 · Trazabilidad</h3><p>Cada ficha conserva folio, fechas, marca, título original, modelo y vínculo al PDF, a su página específica. No se inventan contactos, marcas o modelos cuando el listado no los identifica.</p></article><article class="method-card"><h3>05 · Vigencia</h3><p>Los documentos proceden del corte 04/11/2026. Para contratar, verificar nuevamente fecha, alcance, planta, sustituciones de modelo, edición de norma y condiciones del procedimiento aplicable.</p></article><article class="method-card"><h3>06 · Revisión de ingeniería</h3><p>Después de preseleccionar fabricantes, Ingeniería coteja los parámetros críticos restantes con la CP del concurso. La herramienta es un filtro inicial de riesgo documental, no un dictamen de conformidad.</p></article></div><div class="sourceboxes"><div><strong>LPA · Prototipos aprobados</strong><span>3,029 registros · 1,139 páginas</span><a href="documentos/LPA-04112026.pdf" target="_blank" rel="noopener">Abrir PDF original ↗</a></div><div><strong>LPP · Proveedores aprobados</strong><span>273 constancias · 1,702 productos · 558 páginas</span><a href="documentos/LPP-Proveedores-Aprobados.pdf" target="_blank" rel="noopener">Abrir PDF original ↗</a></div></div></section>
+</main>
+<footer><span>SNI · Directorio técnico de proveedores CFE</span><span>Uso interno · Fuentes LAPEM al 04/11/2026 · Funciona sin conexión</span></footer>
+<dialog id="detail"><div class="dialog-header"><div><span class="eyebrow dark">EXPEDIENTE / FUENTE ORIGINAL</span><h2 id="detailTitle"></h2></div><button id="closeDetail" aria-label="Cerrar">✕</button></div><div id="detailBody"></div></dialog>
+</body></html>

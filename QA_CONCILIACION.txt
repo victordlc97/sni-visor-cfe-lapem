@@ -1,0 +1,47 @@
+CONTROL DE CALIDAD DE NORMALIZACIÓN — SNI CFE/LAPEM
+Documento: versión web local REV01; fuentes LPP y LPA, corte 04/11/2026.
+
+CONTENIDO BASE
+  LPA: 3,029 registros de prototipos y registros migrados.
+  LPP: 273 constancias de proveedor, con 1,702 productos/alcances.
+  Índice local combinado: 4,731 registros de consulta.
+  Identidades normalizadas: 727 claves de búsqueda (pueden persistir variantes legales).
+  Fuente original: página y folio disponibles en cada ficha.
+
+REGLAS
+  - La familia general de la norma nunca sustituye el alcance particular del modelo.
+  - Los rangos se extraen del producto descrito, no de los títulos genéricos de las normas.
+  - La ausencia de un dato se marca «Requiere cotejo», no «Cumple».
+  - Se distingue expresamente el subtipo de cuchilla cuando la fuente lo especifica.
+  - Se conserva original de cada registro, sin sustituir textos por inferencias.
+  - Una clasificación de resultado aplica solamente a los filtros seleccionados.
+  - Un fabricante con CCP y CEP no implica que las constancias cubran el mismo modelo.
+
+PRUEBAS DE NO-FALSOS-POSITIVOS
+  A. Banco V8000-53 / 115 kV: Sieyuan (161 kV específico) queda excluido.
+  B. Banco V8000-53 / 161 kV: Sieyuan aparece con 21 MVAr.
+  C. Banco V8000-53 / 7.5 MVAr: CRIMSA (mínimo 7.60 MVAr) queda excluido.
+  D. Cuchilla tipo V / 123 kV: pantógrafo IUSA CEP-00001-2024 no figura como tipo V.
+  E. Cuchilla tipo V / 123 kV: cuchilla 245 kV COELME CEP-00080-2025 no equivale.
+  F. Los filtros de transformadores de potencia no hacen equivalentes los de distribución.
+
+REVISIÓN DE NAVEGADOR
+  Página ejecutada en Chromium con scripts embebidos para pruebas de seguridad del entorno.
+  Sin errores de JavaScript; paneles funcionales; modales, selección y fichas operativos.
+  En el paquete final, los archivos JavaScript están en rutas locales y no se usa fetch.
+
+LIMITACIONES CONOCIDAS
+  - No es un dictamen de conformidad total con Características Particulares.
+  - La extracción de parámetros no cubre todas las variedades existentes de redacción.
+  - Corriente nominal, cortocircuito e impulso pueden tener múltiples interpretaciones;
+    cotejar expresamente el rating y la duración con la CP antes de contratación.
+  - Homónimos/variantes societarias y plantas requieren validación documental.
+  - El estado jurídico vigente requiere cotejar la fuente LAPEM al contratar.
+
+OBSERVACIONES DE CONTROL
+  - Dos productos LPP (LPP-P1632 y LPP-P1633; página 531) carecen de
+    folio identificable en el texto extraído y se presentan con advertencia.
+  - Los 727 identificadores normalizados no equivalen necesariamente a
+    727 razones sociales únicas verificadas; requieren depuración legal.
+  - MVAr y MVA están diferenciados. Un valor MVA se considera explícito
+    solo cuando el texto lo declara y no por deducción de un código.
